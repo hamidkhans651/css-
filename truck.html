@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Truck Animation</title>
+    <style>
+        /* styles.css */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0;
+        }
+
+        .truck {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            transition: transform 1s ease-in-out;
+        }
+
+        .body {
+            width: 100%;
+            height: 50px;
+            background-color: #4CAF50;
+        }
+
+        .cabin {
+            position: absolute;
+            right: 0;
+            top: -25px;
+            width: 50px;
+            height: 25px;
+            background-color: #f44336;
+        }
+
+        .wheel {
+            position: absolute;
+            bottom: -15px;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        .front-wheel {
+            left: 10px;
+        }
+
+        .back-wheel {
+            right: 10px;
+        }
+
+        .truck:hover {
+            transform: translateX(1000px);
+            /* Moves the truck to the right */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="truck">
+        <div class="body"></div>
+        <div class="cabin"></div>
+        <div class="wheel front-wheel"></div>
+        <div class="wheel back-wheel"></div>
+    </div>
+</body>
+
+</html>
