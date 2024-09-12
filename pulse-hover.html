@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Hover Effect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+    .pulse-hover {
+        display: inline-block;
+        /* Ensures the container adjusts to the size of its contents */
+        transition: transform 0.6s ease;
+        /* Smooth transition for the transform */
+    }
+
+    .pulse-hover:hover {
+        animation: pulse 1s infinite;
+        /* Applies the pulse animation when hovered */
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            /* Starts and ends at the original scale */
+        }
+
+        50% {
+            transform: scale(1.1);
+            /* Scales up to 110% at the midpoint */
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:focus {
+        outline: none;
+        /* Removes the default focus outline to clean up the appearance */
+    }
+</style>
+
+<body>
+    <div class="pulse-hover">
+        <button>Hover Over Me!</button>
+    </div>
+</body>
+
+</html>

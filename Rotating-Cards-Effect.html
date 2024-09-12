@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Cards Effect</title>
+    <style>
+        /* styles.css */
+        .card-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            perspective: 1000px;
+            /* Gives a nice 3D depth */
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            /* transform: rotateY(var(--rotate-angle)) translateZ(100px); */
+            /* Moves the card out from the center */
+            cursor: pointer;
+        }
+
+        .card:hover {
+            filter: blur(2px);
+            /* Adds a blur effect on hover */
+        }
+
+        /* This is just to ensure the cards are visible and do not overflow the container on large rotations */
+        .card-container:hover .card {
+            transform: rotateX(calc(var(--rotate-angle) + 45deg)) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card" style="--rotate-angle: 0deg;">Card 1</div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+<!-- Explanation
+HTML Structure: The HTML consists of a div with the class .card-container that acts as a wrapper for three .card elements. Each card has a custom property --rotate-angle used to define its initial rotation angle.
+
+CSS Styling:
+
+The .card-container establishes a 3D space with perspective.
+Each .card is positioned absolutely within the container to overlap and center. They are set to rotate around the Y-axis based on their custom property and then translated outward along the Z-axis to create a staggered, carousel-like effect.
+The :hover pseudo-class on .card applies a blur effect, adding visual interest and focusing attention when a user interacts with a card.
+When hovering over any card, the container also rotates all cards an additional 45 degrees, enhancing the interactive, dynamic feel of the component.
+This effect creates a visually captivating element suitable for interactive displays, enhancing the user experience with motion and focus. It can be modified further to fit different aesthetic preferences or functional requirements, such as changing colors, shapes, or rotation angles. -->

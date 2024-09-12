@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform and transition</title>
+
+    <style>
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h1>Front Side</h1>
+                <p>Welcome to the front!</p>
+            </div>
+            <div class="flip-card-back">
+                <h1>Back Side</h1>
+                <p>Welcome to the back!</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+<!-- 
+Explanation
+<div class="flip-card">: This is the outer container that establishes the perspective from which the 3D effect is viewed. The perspective property gives it a sense of depth.
+
+<div class="flip-card-inner">: This is the inner container that actually performs the flip. It has the transform-style: preserve-3d; property to ensure that its children (front and back sides) are positioned in a 3D space.
+
+<div class="flip-card-front"> and <div class="flip-card-back">: These divs represent the front and back of the card, respectively. They are positioned absolutely within their parent to cover the same area, and they are flipped by modifying their transform property. The back face is initially hidden and rotated 180 degrees along the Y-axis to face away from the viewer.
+
+CSS
+Your CSS is already set up to handle the 3D flipping animation when the .flip-card is hovered over, causing the .flip-card-inner to rotate around its Y-axis, revealing the .flip-card-back.
+
+This setup provides a straightforward yet visually engaging component that can be used for various applications such as user profiles, product cards, or interactive information displays on a web page. -->
